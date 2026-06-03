@@ -49,7 +49,7 @@ The C program was successfully compiled using GCC and executed successfully.
    ```
 <img width="700" height="550" alt="Screenshot 2026-06-02 164255" src="https://github.com/user-attachments/assets/903162fa-4cf0-416c-ba24-b0ad9ec7b0f2" />
 
-#### 4. The C program was compiled using the RISC-V GCC compiler wtih Ofast optimization level.
+#### 4. The C program was then compiled using the RISC-V GCC compiler wtih Ofast optimization level.
    ```
    riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
    ```
@@ -64,23 +64,23 @@ The C program was successfully compiled using GCC and executed successfully.
 3. Higher optimization levels can improve performance but may make the generated assembly harder to understand.
 
 ### KEYWORDS
-#### -O1
--O1 is a compiler optimization level that performs basic optimizations to improve execution speed and reduce code size.
+- #### -O1
+  -O1 is a compiler optimization level that performs basic optimizations to improve execution speed and reduce code size.
 
-#### -Ofast
--Ofast is an aggressive optimization level that prioritizes performance and may apply optimizations beyond standard compliance.
+- #### -Ofast
+  -Ofast is an aggressive optimization level that prioritizes performance and may apply optimizations beyond standard compliance.
 
-##### -march=rv64i
-Specifies the target architecture as the 64-bit base RISC-V Integer Instruction Set (RV64I).
+- ##### -march=rv64i
+   Specifies the target architecture as the 64-bit base RISC-V Integer Instruction Set (RV64I).
 
-#### -mabi=lp64
-Specifies the Application Binary Interface (ABI) where long integers and pointers are 64 bits wide.
+- #### -mabi=lp64
+   Specifies the Application Binary Interface (ABI) where long integers and pointers are 64 bits wide.
 
-#### objdump
-A utility used to display information about object files and disassemble machine code into assembly instructions.
+- #### objdump
+   A utility used to display information about object files and disassemble machine code into assembly instructions.
 
-#### Disassembly
-The process of converting machine code back into assembly language for analysis.
+- #### Disassembly
+   The process of converting machine code back into assembly language for analysis.
 
 
 ## OBSERVATIONS
