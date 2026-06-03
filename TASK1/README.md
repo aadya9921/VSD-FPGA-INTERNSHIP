@@ -43,7 +43,7 @@ The C program was successfully compiled using GCC and executed successfully.
    ```
    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
    ```
-#### 3. The object file was disassembled to study the generated RISC-V instructions.
+#### 3. The object file was disassembled to study the generated RISC-V instructions.  Type /main to locate the main section of our code.
    ```
    riscv64-unknown-elf-objdump -d sum1ton.o
    ```
@@ -55,7 +55,7 @@ The C program was successfully compiled using GCC and executed successfully.
    ```
 <img width="700" height="550" alt="Screenshot 2026-06-02 164439" src="https://github.com/user-attachments/assets/70204270-c877-4e23-a02e-3a13c6724dd6" />
 
-#### 5. The object file was disassembled to study the generated RISC-V instructions
+#### 5. The object file was disassembled to study the generated RISC-V instructions.  Type /main to locate the main section of our code.
 <img width="700" height="550" alt="Screenshot 2026-06-02 120649" src="https://github.com/user-attachments/assets/4bf521f7-b49e-437d-9a41-ee2c2dc7840f" />
 
 ### OPTIMIZATION COMPARISON
