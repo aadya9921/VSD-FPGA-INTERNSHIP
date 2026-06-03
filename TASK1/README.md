@@ -64,6 +64,9 @@ The C program was successfully compiled using GCC and executed successfully.
 3. Higher optimization levels can improve performance but may make the generated assembly harder to understand.
 
 ### KEYWORDS
+- #### riscv64-unknown-elf-gcc
+  It is the RISC-V cross-compiler used to compile C/C++ programs into executable code for a RISC-V processor. It is part of the RISC-V GNU Toolchain.
+  
 - #### -O1
   -O1 is a compiler optimization level that performs basic optimizations to improve execution speed and reduce code size.
 
