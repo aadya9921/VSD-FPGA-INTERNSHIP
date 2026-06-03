@@ -6,7 +6,7 @@ Refer to the C-based and RISC-V lab videos and execute the task of compiling a C
 
 ## A. C BASED COMPILATION
 
-#### 1. Open the C file.
+#### 1. Create/Open the C file.
    ```
    leafpad sum1ton.c
    ```
