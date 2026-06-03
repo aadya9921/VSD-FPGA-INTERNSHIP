@@ -31,4 +31,5 @@ Sum of numbers from 1 to 100 is 5050
 The C program was successfully compiled using GCC and executed successfully.
 
 
+## B. RISC-V BASED COMPILATION
 
