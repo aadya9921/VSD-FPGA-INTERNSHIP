@@ -43,7 +43,7 @@ The C program was successfully compiled using GCC and executed successfully.
    ```
    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
    ```
-#### 3. The object file was disassembled to study the generated RISC-V instructions.  Type /main to locate the main section of our code.
+#### 3. The object file was disassembled to study the generated RISC-V instructions on a new terminal. Type /main to locate the main section of our code.
    ```
    riscv64-unknown-elf-objdump -d sum1ton.o
    ```
