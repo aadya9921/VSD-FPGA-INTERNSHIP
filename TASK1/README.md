@@ -89,11 +89,10 @@ The C program was successfully compiled using GCC and executed successfully.
 ## OBSERVATIONS
 
 - The C program was successfully compiled using the RISC-V GCC compiler and native GCC compiler.
-- The output obtained from RISC-V compiler was identical to the output generated using native GCC compilation.
 - Different optimization levels produced different assembly instruction sequences.
 - The `-Ofast` optimization generated more optimized code compared to `-O1`.
 - The RISC-V assembly code can be analyzed using the `objdump` utility.
 
 ## CONCLUSION
 
-The C program was successfully compiled for the RISC-V architecture using the RISC-V GCC compiler. The output obtained was identical to the output generated using native GCC compilation. The assembly code generated at different optimization levels was analyzed to understand the impact of compiler optimizations on instruction generation and program performance.
+The C program was successfully compiled for the RISC-V architecture using the RISC-V GCC compiler. The assembly code generated at different optimization levels was analyzed to understand the impact of compiler optimizations on instruction generation and program performance.It was observed that higher optimization levels produced shorter and more efficient code, improving performance. However, the optimized assembly code can be harder to read, understand and debug compared to the unoptimized version. This task helped in understanding the trade-off between code simplicity and performance.
