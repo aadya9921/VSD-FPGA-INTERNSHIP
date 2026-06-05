@@ -19,7 +19,7 @@ RISC-V SPIKE Simulation and Debug Analysis under -O1 and -Ofast Optimization Lev
    ```
    spike pk sum1ton.o
    ```
-<img width="700" height="550" alt="Screenshot 2026-06-05 150032" src="https://github.com/user-attachments/assets/ea449569-3223-4dff-b6f6-e8d669072080" />
+   <img width="700" height="550" alt="Screenshot 2026-06-05 150032" src="https://github.com/user-attachments/assets/ea449569-3223-4dff-b6f6-e8d669072080" />
 
 ### Observation:
 The SPIKE simulator successfully executed the RISC-V binary and produced the same output as native GCC Compiler.
