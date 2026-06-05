@@ -106,7 +106,7 @@ The C program was successfully compiled using GCC and executed successfully.
 ## CONCLUSION
 
 The C program was successfully compiled for the RISC-V architecture using the RISC-V GCC compiler. The assembly code generated at different optimization levels was analyzed to understand the impact of compiler optimizations on instruction generation and program performance. It was observed that higher optimization levels produced shorter and more efficient code, improving performance. However, the optimized assembly code can be harder to read, understand and debug compared to the unoptimized version. This task helped in understanding the trade-off between code simplicity and performance.
-
+</details>
 
 <details>
 <summary><b>Task 2.1 : Spike simulation and debug analysis</b></summary>
