@@ -26,7 +26,7 @@ The SPIKE simulator successfully executed the RISC-V binary and produced the sam
 
     Sum from 1 to 100 is 5050
 
-### A. Debugging of  Instructions
+### B. Debugging of  Instructions
 ### I. Debugging at O1 Optimization level
 
 1. Compile the Program with -O1 Optimization
@@ -91,3 +91,12 @@ The SPIKE debugger successfully traced the execution of the optimized program an
 
 ### Observation:
 The SPIKE debugger successfully traced the execution of the **-Ofast** optimized program. Register values and stack memory updates were observed, showing how the compiler generated a highly optimized instruction sequence for efficient execution.
+
+### Keywords
+- **LUI (Load Upper Immediate):** places the immediate value into bits 31:12 of the destination register and fills bits 11:0 with zeros.
+- **ADDI (Add Immediate):** Adds an immediate value to a register.
+- **SP (Stack Pointer):** Points to the top of the stack.
+- **RA (Return Address):** Stores the return address of a function call.
+- **PC (Program Counter):** Holds the address of the current instruction.
+- **SD (Store Doubleword):** Stores a 64-bit value from a register into memory.
+- **LI (Load Immediate):** Loads a constant value directly into a register.
