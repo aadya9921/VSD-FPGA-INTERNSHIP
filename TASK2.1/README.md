@@ -46,7 +46,7 @@ The SPIKE simulator successfully executed the RISC-V binary and produced the sam
    spike -d pk sum1ton_O1.o
    ```
 
-4. Navigate to the Main Function
+4. Navigate to the Main() Function
    ```
    until pc 0 10184
    ```
@@ -60,4 +60,34 @@ The SPIKE simulator successfully executed the RISC-V binary and produced the sam
 ### Observation:
 The SPIKE debugger successfully traced the execution of the optimized program and showed the changes in register values and stack memory during instruction execution.
 
-### I. Debugging at Ofast Optimization level
+### II. Debugging at Ofast Optimization level
+
+1. Compile the Program with -Ofast Optimization
+   ```
+   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton_O1.o sum1ton.c
+   ```
+2. Instruction Analysis using Objdump
+   ```
+   riscv64-unknown-elf-objdump -d sum1ton_O1.o | less
+   ```
+   <img width="700" height="550" alt="Screenshot 2026-06-05 151214" src="https://github.com/user-attachments/assets/8aed3501-6df4-4333-8dfb-4a9a618ce0f1" />
+
+    The disassembled RISC-V object file generated at the -Ofast optimization level contained 12 instructions.
+
+3. Start SPIKE in Debug Mode
+   ```
+   spike -d pk sum1ton_O1.o
+   ```
+4. Navigate to the Main() Function
+   ```
+   until pc 0 100b0
+   ```
+   <img width="700" height="550" alt="Screenshot 2026-06-05 151103" src="https://github.com/user-attachments/assets/98107af4-3db5-404a-8517-599756927025" />
+- `lui a2, 0x1` : Loads the upper immediate value `0x1` into register `a2`. The register value changes from `0x0000000000000000` to `0x0000000000001000`.
+
+- `lui a0, 0x21` : Loads the upper immediate value `0x21` into register `a0`. The register value changes from `0x0000000000000000` to `0x0000000000021000`.
+
+- `addi sp, sp, -16` : Allocates 16 bytes of stack space. The stack pointer (`sp`) changes from `0x000000007f7e9b50` to `0x000000007f7e9b40`.
+
+### Observation:
+The SPIKE debugger successfully traced the execution of the **-Ofast** optimized program. Register values and stack memory updates were observed, showing how the compiler generated a highly optimized instruction sequence for efficient execution.
