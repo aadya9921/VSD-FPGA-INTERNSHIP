@@ -100,3 +100,13 @@ The SPIKE debugger successfully traced the execution of the **-Ofast** optimized
 - **PC (Program Counter):** Holds the address of the current instruction.
 - **SD (Store Doubleword):** Stores a 64-bit value from a register into memory.
 - **LI (Load Immediate):** Loads a constant value directly into a register.
+
+## KEY LEARNINGS
+- Understood SPIKE simulation and debug mode.
+- Analyzed RISC-V assembly instructions using objdump.
+- Observed register and stack behavior during execution.
+- Compared the impact of -O1 and -Ofast optimization levels.
+
+## CONCLUSION
+
+The RISC-V program was successfully compiled, simulated, and debugged using the SPIKE simulator. Using SPIKE debug mode, the execution flow, register values, and stack operations were observed instruction by instruction. This task helped in learning RISC-V compilation, assembly analysis, simulation, and instruction-level debugging.
