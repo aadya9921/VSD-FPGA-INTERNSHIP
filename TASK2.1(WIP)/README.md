@@ -4,7 +4,7 @@
 
 RISC-V SPIKE Simulation and Debug Analysis under -O1 and -Ofast Optimization Levels
 
-### A. SPIKE SIMULATIOMN
+## A. SPIKE SIMULATIOMN
 
 1. Compile the C code using native GCC compiler.
    ```
@@ -26,7 +26,7 @@ The SPIKE simulator successfully executed the RISC-V binary and produced the sam
 
     Sum from 1 to 100 is 5050
 
-### B. DEBUGGING OF INSTRUCTIONS
+## B. DEBUGGING OF INSTRUCTIONS
 ### I. Debugging at O1 Optimization level
 
 1. Compile the Program with -O1 Optimization
