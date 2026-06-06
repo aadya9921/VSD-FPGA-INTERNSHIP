@@ -93,7 +93,7 @@ The SPIKE debugger successfully traced the execution of the optimized program an
 The SPIKE debugger successfully traced the execution of the **-Ofast** optimized program. Register values and stack memory updates were observed, showing how the compiler generated a highly optimized instruction sequence for efficient execution.
 
 ### Keywords
-- **LUI (Load Upper Immediate):** places the immediate value into bits 31:12 of the destination register and fills bits 11:0 with zeros.
+- **LUI (Load Upper Immediate):** Places the immediate value into bits 31:12 of the destination register and fills bits 11:0 with zeros.
 - **ADDI (Add Immediate):** Adds an immediate value to a register.
 - **SP (Stack Pointer):** Points to the top of the stack.
 - **RA (Return Address):** Stores the return address of a function call.
