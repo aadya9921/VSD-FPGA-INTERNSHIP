@@ -45,7 +45,7 @@ The C program was successfully compiled using GCC and executed successfully.
    ```
 #### 3. The object file was disassembled to study the generated RISC-V instructions on a new terminal. Type /main to locate the main section of our code.
    ```
-   riscv64-unknown-elf-objdump -d sum1ton.o
+   riscv64-unknown-elf-objdump -d sum1ton.o | less
    ```
 <img width="700" height="550" alt="Screenshot 2026-06-02 164255" src="https://github.com/user-attachments/assets/903162fa-4cf0-416c-ba24-b0ad9ec7b0f2" />
 
