@@ -60,7 +60,7 @@ The C program was successfully compiled using GCC and executed successfully.
 
 ### OPTIMIZATION COMPARISON
 1. The -O1 optimization level performs basic optimizations and generates moderately optimized assembly code.(15 Instructions)
-2. The -Ofast optimization level performs aggressive optimizations to improve execution speed, basically reduces unnecessary instructions and produce efficient machine code.(12 Instructions)
+2. The -Ofast optimization level performs aggressive optimizations to improve execution speed, basically here it reduced unnecessary instructions and produced efficient machine code.(12 Instructions)
 3. Higher optimization levels can improve performance but may make the generated assembly harder to understand.
 
 ### KEYWORDS
@@ -95,4 +95,4 @@ The C program was successfully compiled using GCC and executed successfully.
 
 ## CONCLUSION
 
-The C program was successfully compiled for the RISC-V architecture using the RISC-V GCC compiler. The assembly code generated at different optimization levels was analyzed to understand the impact of compiler optimizations on instruction generation and program performance. It was observed that higher optimization levels produced shorter and more efficient code, improving performance. However, the optimized assembly code can be harder to read, understand and debug compared to the unoptimized version. This task helped in understanding the trade-off between code simplicity and performance.
+The C program was successfully compiled for the RISC-V architecture using the RISC-V GCC compiler. The assembly code generated at different optimization levels was analyzed to understand the impact of compiler optimizations on instruction generation and program performance. It was observed that higher optimization levels produced more optimized and efficient code, improving performance. However, the optimized assembly code can be harder to read, understand and debug compared to the unoptimized version. This task helped in understanding the trade-off between code simplicity and performance.
