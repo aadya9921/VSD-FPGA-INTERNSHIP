@@ -207,3 +207,8 @@ Ofast Optimization level produced 98 instructions. The SPIKE debugger successful
 
 Learned that higher optimization levels do not always produce fewer instructions. Although the `-Ofast` build generated 98 instructions compared to 92 instructions for `-O1`, this is normal because `-Ofast` prioritizes execution performance and speed over code size. To improve speed, the compiler may apply additional optimizations such as instruction scheduling, branch restructuring, and function inlining, which can sometimes increase the instruction count while still improving overall efficiency.
 
+## CONCLUSION
+
+## Conclusion
+
+The Car Parking Counter application was successfully developed and tested using GCC, RISC-V GCC, and the SPIKE simulator. The program correctly monitored vehicle entry and exit while updating the parking count and available slots for both Native GCC and RISC-V GCC. The assembly code generated at the `-O1` and `-Ofast` optimization levels was analyzed through SPIKE debugging to understand how compiler optimizations affect program execution. It was observed that the `-Ofast` build produced slightly more instructions (98) than the `-O1` build (92), showing that higher optimization levels aim to improve performance rather than simply reduce instruction count. Overall, this task provided hands-on experience with RISC-V compilation, simulation, debugging, and optimization analysis through a real-world application.
