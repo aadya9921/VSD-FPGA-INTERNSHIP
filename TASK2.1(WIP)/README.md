@@ -4,7 +4,7 @@
 
 RISC-V SPIKE Simulation and Debug Analysis under -O1 and -Ofast Optimization Levels
 
-## A. SPIKE SIMULATIOMN
+## A. SPIKE SIMULATION
 
 1. Compile the C code using native GCC compiler.
    ```
