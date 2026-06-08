@@ -164,6 +164,7 @@ O1 Optimization level produced 92 instructions.
    ```
    until pc 0 10184
    ```
+<img width="700" height="550" alt="Screenshot 2026-06-08 214722" src="https://github.com/user-attachments/assets/f0c78033-e04a-4d3f-a525-c2bd205185fd" />
 
    
 #### 3. The C program was then compiled using the RISC-V GCC compiler wtih *Ofast* optimization level.
