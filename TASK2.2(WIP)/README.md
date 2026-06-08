@@ -202,3 +202,8 @@ O1 Optimization level produced 92 instructions. The debug analysis showed that t
 ### Observation:
 
 Ofast Optimization level produced 98 instructions. The SPIKE debugger successfully traced the execution of the optimized (`-Ofast`) build. It was observed that the compiler used instructions such as `lui` and `addi` to efficiently generate memory addresses and allocate stack space. Compared to lower optimization levels, the generated code was more performance-oriented, demonstrating the effect of aggressive compiler optimizations.
+
+## KEY LEARNINGS
+
+Learned that higher optimization levels do not always produce fewer instructions. Although the `-Ofast` build generated 98 instructions compared to 92 instructions for `-O1`, this is normal because `-Ofast` prioritizes execution performance and speed over code size. To improve speed, the compiler may apply additional optimizations such as instruction scheduling, branch restructuring, and function inlining, which can sometimes increase the instruction count while still improving overall efficiency.
+
