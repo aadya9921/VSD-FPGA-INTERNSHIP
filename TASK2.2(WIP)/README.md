@@ -141,7 +141,7 @@ The C program was successfully compiled using GCC and executed successfully.
 The SPIKE simulator successfully executed the RISC-V binary and produced the same output as native GCC Compiler.
 
 ## C. ANALYSIS AND DEBUGGING OF INSTRUCTIONS
-### I. for O1 Optimization level
+### I. FOR O1 OPTIMIZATION LEVEL
 #### 1. The C program was compiled using the RISC-V GCC compiler wtih *O1* optimization level.
    ```
    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o car_parking_counter.o car_parking_counter.c
@@ -173,7 +173,7 @@ The SPIKE simulator successfully executed the RISC-V binary and produced the sam
 
 O1 Optimization level produced 92 instructions. The debug analysis showed that the program allocates stack space and saves important registers (`ra` and `s0`) at the start of the `main()` function. This helps maintain correct program execution and function control flow.
 
-### II. for Ofast Optimization level
+### II. FOR Ofast OPTIMIZATION LEVEL
 #### 1. The C program was compiled using the RISC-V GCC compiler wtih *Ofast* optimization level.
    ```
    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o car_parking_counter.o car_parking_counter.c
