@@ -152,9 +152,6 @@ The SPIKE simulator successfully executed the RISC-V binary and produced the sam
    ```
 <img width="700" height="550" alt="Screenshot 2026-06-07 212245" src="https://github.com/user-attachments/assets/0e9c1ca8-85c9-4b07-a2b9-be7446ed801c" />
 
-### Observation:
-O1 Optimization level produced 92 instructions.
-
 #### 3. Start SPIKE in Debug Mode
    ```
    spike -d pk sum1ton_O1.o
@@ -166,15 +163,42 @@ O1 Optimization level produced 92 instructions.
    ```
 <img width="700" height="550" alt="Screenshot 2026-06-08 214722" src="https://github.com/user-attachments/assets/f0c78033-e04a-4d3f-a525-c2bd205185fd" />
 
-   
-#### 3. The C program was then compiled using the RISC-V GCC compiler wtih *Ofast* optimization level.
-   ```
-   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o car_parking_counter.o car_parking_counter.c
-   ```
-#### 4. The object file was disassembled to study the generated RISC-V instructions.  Type /main to locate the main section of our code.
-<img width="700" height="550" alt="Screenshot 2026-06-08 124434" src="https://github.com/user-attachments/assets/2456bf37-2a25-4f3d-80b9-798f4ef74e24" />
+- `addi sp, sp, -96` : Allocates 96 bytes of stack space. The stack pointer (`sp`) changes from `0x7f7e9b40` to `0x7f7e9ae0`.
+
+- `sd ra, 88(sp)` : Stores the return address register (`ra`) on the stack. The value stored is `0x000000000001010c`.
+
+- `sd s0, 80(sp)` : Stores the saved register (`s0`) on the stack. At this stage, `s0` contains `0x0000000000000000`.
 
 ### Observation:
-Ofast Optimization level produced 98 instructions.
 
+O1 Optimization level produced 92 instructions. The debug analysis showed that the program allocates stack space and saves important registers (`ra` and `s0`) at the start of the `main()` function. This helps maintain correct program execution and function control flow.
 
+### II. for Ofast Optimization level
+#### 1. The C program was compiled using the RISC-V GCC compiler wtih *Ofast* optimization level.
+   ```
+   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o car_parking_counter.o car_parking_counter.c
+   ```
+#### 2. The object file was disassembled to study the generated RISC-V instructions on a new terminal. Type /main to locate the main section of our code.
+
+<img width="700" height="550" alt="Screenshot 2026-06-08 124434" src="https://github.com/user-attachments/assets/cd0e790e-0ca9-48ff-88e2-d46dad0bbca9" />
+
+#### 3. Start SPIKE in Debug Mode
+   ```
+   spike -d pk sum1ton_O1.o
+   ```
+
+#### 4. Navigate to the Main() Function
+   ```
+   until pc 0 100b0
+   ```
+<img width="700" height="550" alt="Screenshot 2026-06-08 215601" src="https://github.com/user-attachments/assets/aeefdcc1-8e29-4596-bc45-11a441f2432b" />
+
+- `lui a0, 0x2b` : Loads the upper 20 bits (`0x2b`) into register `a0`. The value of `a0` changes from `0x0000000000000001` to `0x000000000002b000`.
+
+- `addi sp, sp, -128` : Allocates 128 bytes of stack space. The stack pointer (`sp`) changes from `0x7f7e9b40` to `0x7f7e9ac0`.
+
+- `addi a0, a0, -448` : Adds an immediate value of `-448` to register `a0`. The value of `a0` changes from `0x000000000002b000` to `0x000000000002ae40`.
+
+### Observation:
+
+Ofast Optimization level produced 98 instructions. The SPIKE debugger successfully traced the execution of the optimized (`-Ofast`) build. It was observed that the compiler used instructions such as `lui` and `addi` to efficiently generate memory addresses and allocate stack space. Compared to lower optimization levels, the generated code was more performance-oriented, demonstrating the effect of aggressive compiler optimizations.
