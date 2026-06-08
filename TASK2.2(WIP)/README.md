@@ -125,30 +125,7 @@ int main()
 
 The C program was successfully compiled using GCC and executed successfully.
 
-## B. RISC-V BASED COMPILATION
-
-#### 1. The C program was compiled using the RISC-V GCC compiler wtih O1 optimization level.
-   ```
-   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o car_parking_counter.o car_parking_counter.c
-   ```
-#### 2. The object file was disassembled to study the generated RISC-V instructions on a new terminal. Type /main to locate the main section of our code.
-   ```
-   riscv64-unknown-elf-objdump -d car_parking_counter.o | less
-   ```
-<img width="700" height="550" alt="Screenshot 2026-06-07 212245" src="https://github.com/user-attachments/assets/0e9c1ca8-85c9-4b07-a2b9-be7446ed801c" />
-
-O1 Optimization level produced 92 instructions.
-
-#### 3. The C program was then compiled using the RISC-V GCC compiler wtih Ofast optimization level.
-   ```
-   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o car_parking_counter.o car_parking_counter.c
-   ```
-#### 4. The object file was disassembled to study the generated RISC-V instructions.  Type /main to locate the main section of our code.
-<img width="700" height="550" alt="Screenshot 2026-06-08 124434" src="https://github.com/user-attachments/assets/2456bf37-2a25-4f3d-80b9-798f4ef74e24" />
-
-Ofast Optimization level produced 98 instructions.
-
-## C. SPIKE SIMULATION
+## B. RISC-V GCC COMPILATION AND SPIKE SIMULATION
 
 #### 1. Compile the C code Using RISC-V GCC.
    ```
@@ -159,3 +136,36 @@ Ofast Optimization level produced 98 instructions.
    spike pk sum1ton.o
    ```
 <img width="700" height="550" alt="Screenshot 2026-06-08 125931" src="https://github.com/user-attachments/assets/e1678b03-97ef-4e3d-8808-4e131152a915" />
+
+### Observation:
+The SPIKE simulator successfully executed the RISC-V binary and produced the same output as native GCC Compiler.
+
+## C. ANALYSIS AND DEBUGGING OF INSTRUCTIONS
+### I. for O1 Optimization level
+#### 1. The C program was compiled using the RISC-V GCC compiler wtih *O1* optimization level.
+   ```
+   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o car_parking_counter.o car_parking_counter.c
+   ```
+#### 2. The object file was disassembled to study the generated RISC-V instructions on a new terminal. Type /main to locate the main section of our code.
+   ```
+   riscv64-unknown-elf-objdump -d car_parking_counter.o | less
+   ```
+<img width="700" height="550" alt="Screenshot 2026-06-07 212245" src="https://github.com/user-attachments/assets/0e9c1ca8-85c9-4b07-a2b9-be7446ed801c" />
+
+### Observation:
+O1 Optimization level produced 92 instructions.
+
+#### 3. The C program was then compiled using the RISC-V GCC compiler wtih *Ofast* optimization level.
+   ```
+   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o car_parking_counter.o car_parking_counter.c
+   ```
+#### 4. The object file was disassembled to study the generated RISC-V instructions.  Type /main to locate the main section of our code.
+<img width="700" height="550" alt="Screenshot 2026-06-08 124434" src="https://github.com/user-attachments/assets/2456bf37-2a25-4f3d-80b9-798f4ef74e24" />
+
+### Observation:
+Ofast Optimization level produced 98 instructions.
+
+
+
+## D. DEBUGGING OF INSTRUCTIONS
+### I. Debugging at O1 Optimization level
