@@ -155,6 +155,17 @@ The SPIKE simulator successfully executed the RISC-V binary and produced the sam
 ### Observation:
 O1 Optimization level produced 92 instructions.
 
+#### 3. Start SPIKE in Debug Mode
+   ```
+   spike -d pk sum1ton_O1.o
+   ```
+
+#### 4. Navigate to the Main() Function
+   ```
+   until pc 0 10184
+   ```
+
+   
 #### 3. The C program was then compiled using the RISC-V GCC compiler wtih *Ofast* optimization level.
    ```
    riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o car_parking_counter.o car_parking_counter.c
@@ -166,6 +177,3 @@ O1 Optimization level produced 92 instructions.
 Ofast Optimization level produced 98 instructions.
 
 
-
-## D. DEBUGGING OF INSTRUCTIONS
-### I. Debugging at O1 Optimization level
