@@ -138,7 +138,8 @@ The C program was successfully compiled using GCC and executed successfully.
 <img width="700" height="550" alt="Screenshot 2026-06-08 125931" src="https://github.com/user-attachments/assets/e1678b03-97ef-4e3d-8808-4e131152a915" />
 
 ### Observation:
-The SPIKE simulator successfully executed the RISC-V binary and produced the same output as native GCC Compiler.
+
+The SPIKE simulator successfully executed the RISC-V binary and produced the same functional output as the native GCC compiler. Minor differences were observed in the formatting of console input/output due to the way SPIKE handles terminal I/O and input buffering. However, these differences did not affect the correctness of program execution.
 
 ## C. ANALYSIS AND DEBUGGING OF INSTRUCTIONS
 ### I. FOR O1 OPTIMIZATION LEVEL
