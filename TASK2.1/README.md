@@ -31,11 +31,11 @@ The SPIKE simulator successfully executed the RISC-V binary and produced the sam
 
 1. Compile the Program with -O1 Optimization
    ```
-   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton_O1.o sum1ton.c
+   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
    ```
 2. Instruction Analysis using Objdump
    ```
-   riscv64-unknown-elf-objdump -d sum1ton_O1.o | less
+   riscv64-unknown-elf-objdump -d sum1ton.o | less
    ```
    <img width="700" height="550" alt="Screenshot 2026-06-05 152339" src="https://github.com/user-attachments/assets/d554ddc3-8a13-4fe2-b9b2-159fe81e4b18" />
 
@@ -43,7 +43,7 @@ The SPIKE simulator successfully executed the RISC-V binary and produced the sam
 
 3. Start SPIKE in Debug Mode
    ```
-   spike -d pk sum1ton_O1.o
+   spike -d pk sum1ton.o
    ```
 
 4. Navigate to the Main() Function
@@ -64,11 +64,11 @@ The SPIKE debugger successfully traced the execution of the optimized program an
 
 1. Compile the Program with -Ofast Optimization
    ```
-   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton_O1.o sum1ton.c
+   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
    ```
 2. Instruction Analysis using Objdump
    ```
-   riscv64-unknown-elf-objdump -d sum1ton_O1.o | less
+   riscv64-unknown-elf-objdump -d sum1ton.o | less
    ```
    <img width="700" height="550" alt="Screenshot 2026-06-05 151214" src="https://github.com/user-attachments/assets/8aed3501-6df4-4333-8dfb-4a9a618ce0f1" />
 
@@ -76,7 +76,7 @@ The SPIKE debugger successfully traced the execution of the optimized program an
 
 3. Start SPIKE in Debug Mode
    ```
-   spike -d pk sum1ton_O1.o
+   spike -d pk sum1ton.o
    ```
 4. Navigate to the Main() Function
    ```
