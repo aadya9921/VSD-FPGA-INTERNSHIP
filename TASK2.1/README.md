@@ -2,7 +2,7 @@
 
 ## Objective
 
-RISC-V SPIKE Simulation and Debug Analysis under -O1 and -Ofast Optimization Levels
+RISC-V SPIKE Simulation and Debug Analysis under -O1 and -Ofast Optimization Levels (Sum1ton).
 
 ## A. SPIKE SIMULATION
 
