@@ -129,11 +129,11 @@ The C program was successfully compiled using GCC and executed successfully.
 
 #### 1. Compile the C code Using RISC-V GCC.
    ```
-   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
+   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o car_parking_counter.o car_parking_counter.c
    ```
 #### 2. Run the Program on SPIKE Simulator.
    ```
-   spike pk sum1ton.o
+   spike pk car_parking_counter.o
    ```
 <img width="700" height="550" alt="Screenshot 2026-06-08 125931" src="https://github.com/user-attachments/assets/e1678b03-97ef-4e3d-8808-4e131152a915" />
 
@@ -155,7 +155,7 @@ The SPIKE simulator successfully executed the RISC-V binary and produced the sam
 
 #### 3. Start SPIKE in Debug Mode
    ```
-   spike -d pk sum1ton_O1.o
+   spike -d pk car_parking_counter.o
    ```
 
 #### 4. Navigate to the Main() Function
@@ -177,7 +177,7 @@ O1 Optimization level produced 92 instructions. The debug analysis showed that t
 ### II. FOR Ofast OPTIMIZATION LEVEL
 #### 1. The C program was compiled using the RISC-V GCC compiler wtih *Ofast* optimization level.
    ```
-   riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o car_parking_counter.o car_parking_counter.c
+   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o car_parking_counter.o car_parking_counter.c
    ```
 #### 2. The object file was disassembled to study the generated RISC-V instructions on a new terminal. Type /main to locate the main section of our code.
 
@@ -185,7 +185,7 @@ O1 Optimization level produced 92 instructions. The debug analysis showed that t
 
 #### 3. Start SPIKE in Debug Mode
    ```
-   spike -d pk sum1ton_O1.o
+   spike -d pk car_parking_counter.o
    ```
 
 #### 4. Navigate to the Main() Function
