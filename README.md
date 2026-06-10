@@ -12,4 +12,4 @@
 
 - [Task 2.1 : SPIKE Simulation and Debugging using RISC-V GCC](./TASK2.1)
 
-- [Task 3 : Car Parking Counter using C, RISC-V GCC and SPIKE Simulator](./TASK3)
+- [Task 3 : Car Parking Counter using C, RISC-V GCC and SPIKE Simulator](./TASK2.2)
