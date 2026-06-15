@@ -39,12 +39,15 @@ int main() {
 Commands Used
 ```
 - riscv64-unknown-elf-gcc --version
-- spike --version
+- spike --help
 - iverilog -V
 - cd samples
 - riscv64-unknown-elf-gcc -o sum1ton.o sum1ton.c
 - spike pk sum1ton.o
 ```
+
+    Expected Output: Sum from 1 to 100 is 5050.
+
 <img width="700" height="550" alt="Screenshot 2026-06-13 120425" src="https://github.com/user-attachments/assets/45ff4ad3-201d-4585-8237-550f0ffc58d2" />
 <br><br>
 <img width="700" height="550" alt="Screenshot 2026-06-13 120453" src="https://github.com/user-attachments/assets/c9ee1299-0d66-489a-9a49-90ece8eff3de" />
@@ -98,7 +101,7 @@ The VSDFPGA repository was cloned inside the same GitHub Codespace environment.
   ```
 <img width="700" height="550" alt="Screenshot 2026-06-15 121008" src="https://github.com/user-attachments/assets/7b7bc934-2c98-45e4-b2b8-7cb599fa516f" />
 
-- Why **.elf** instead of **.o**?
+- Why ```.elf``` instead of ```.o```?
 
   The .o file generated during compilation is an object file and may not contain all the information required for execution.   The .elf file is a fully linked executable that can be loaded by the Proxy Kernel (pk) and executed by the Spike
   simulator. Therefore, riscv_logo.elf was used for simulation instead of riscv_logo.o.
@@ -128,7 +131,7 @@ Ans: The RISC-V reference program is located in the samples/ directory of the vs
 
 **Que2: How is the program compiled and loaded into memory?**
 
-Ans: The program is compiled using the RISC-V cross-compiler (riscv64-unknown-elf-gcc), which converts the C source code into a RISC-V executable(ELF Format). The executable is then loaded into simulated memory and executed by the Spike simulator using the Proxy Kernel (pk). The Proxy Kernel acts as a lightweight runtime environment that provides basic services such as program loading and system call handling during simulation.
+Ans: The program is compiled using the RISC-V cross-compiler (riscv64-unknown-elf-gcc), which converts the C source code into a RISC-V executable (ELF Format). The executable is then loaded into simulated memory and executed by the Spike simulator using the Proxy Kernel (pk). The Proxy Kernel acts as a lightweight runtime environment that provides basic services such as program loading and system call handling during simulation.
 
 **Que3: How does the RISC-V core access memory and memory-mapped IO?**
 
