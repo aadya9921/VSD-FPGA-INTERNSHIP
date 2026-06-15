@@ -137,3 +137,7 @@ Ans: The RISC-V core accesses memory by reading and writing data through load an
 **Que4: Where would a new FPGA IP block logically integrate in this system?**
 
 Ans: A new FPGA IP block would be connected to the system as a peripheral. It would be assigned a memory address range, allowing the RISC-V processor to access and control it through memory-mapped I/O.
+
+## Conclusion
+
+The development environment was successfully set up and verified. The RISC-V reference program was compiled and executed using the Spike simulator, and the VSDFPGA lab firmware was generated and tested successfully. A local development environment was also prepared, providing a strong foundation for future FPGA and IP development tasks.
