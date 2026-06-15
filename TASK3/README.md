@@ -48,11 +48,11 @@ Commands Used
 
     Expected Output: Sum from 1 to 100 is 5050.
 
-<img width="700" height="550" alt="Screenshot 2026-06-13 120425" src="https://github.com/user-attachments/assets/45ff4ad3-201d-4585-8237-550f0ffc58d2" />
+<img width="800" height="550" alt="Screenshot 2026-06-13 120425" src="https://github.com/user-attachments/assets/45ff4ad3-201d-4585-8237-550f0ffc58d2" />
 <br><br>
-<img width="700" height="550" alt="Screenshot 2026-06-13 120453" src="https://github.com/user-attachments/assets/c9ee1299-0d66-489a-9a49-90ece8eff3de" />
+<img width="800" height="550" alt="Screenshot 2026-06-13 120453" src="https://github.com/user-attachments/assets/c9ee1299-0d66-489a-9a49-90ece8eff3de" />
 <br><br>
-<img width="700" height="150" alt="Screenshot 2026-06-13 120751" src="https://github.com/user-attachments/assets/2fcac4e0-056b-4b46-8d28-cacb562286fb" />
+<img width="800" height="150" alt="Screenshot 2026-06-13 120751" src="https://github.com/user-attachments/assets/2fcac4e0-056b-4b46-8d28-cacb562286fb" />
 
 ## Step 3: VSDFPGA Lab Execution
 
@@ -74,7 +74,7 @@ The VSDFPGA repository was cloned inside the same GitHub Codespace environment.
   make riscv_logo.bram.hex
   ```
   The generated firmware image was copied to the RTL directory for further processing.
-<img width="700" height="550" alt="Screenshot 2026-06-14 221400" src="https://github.com/user-attachments/assets/ac673eab-2ddd-4ed2-bb67-1d738578807b" />
+<img width="800" height="550" alt="Screenshot 2026-06-14 221400" src="https://github.com/user-attachments/assets/ac673eab-2ddd-4ed2-bb67-1d738578807b" />
 
 
 - RISC-V Logo Program Execution
@@ -99,7 +99,7 @@ The VSDFPGA repository was cloned inside the same GitHub Codespace environment.
   *                                                          *
   ************************************************************
   ```
-<img width="700" height="550" alt="Screenshot 2026-06-15 121008" src="https://github.com/user-attachments/assets/7b7bc934-2c98-45e4-b2b8-7cb599fa516f" />
+<img width="800" height="550" alt="Screenshot 2026-06-15 121008" src="https://github.com/user-attachments/assets/7b7bc934-2c98-45e4-b2b8-7cb599fa516f" />
 
 - Why ```.elf``` instead of ```.o```?
 
@@ -116,9 +116,9 @@ Both repositories were cloned locally:
 git clone https://github.com/vsdip/vsd-riscv2.git
 git clone https://github.com/vsdip/vsdfpga_labs.git
 ```
-<img width="700" height="550" alt="Screenshot 2026-06-14 160910" src="https://github.com/user-attachments/assets/2fa2e08f-1d40-4070-bf45-61648776bc77" />
+<img width="800" height="550" alt="Screenshot 2026-06-14 160910" src="https://github.com/user-attachments/assets/2fa2e08f-1d40-4070-bf45-61648776bc77" />
 <br><br>
-<img width="700" height="126" alt="Screenshot 2026-06-15 124554" src="https://github.com/user-attachments/assets/61cb9f1e-c780-4df2-8212-599c44a01009" />
+<img width="800" height="126" alt="Screenshot 2026-06-15 124554" src="https://github.com/user-attachments/assets/61cb9f1e-c780-4df2-8212-599c44a01009" />
 
 **Note**:
 This step was performed to understand the local development environment required for future FPGA-related tasks. The repositories were cloned successfully in an Ubuntu virtual machine, and the Dockerfile was reviewed to identify the required tools, packages, and setup dependencies. As specified in the task instructions, a complete FPGA tool installation was not required at this stage.
