@@ -77,7 +77,7 @@ The VSDFPGA repository was cloned inside the same GitHub Codespace environment.
 <img width="800" height="550" alt="Screenshot 2026-06-14 221400" src="https://github.com/user-attachments/assets/ac673eab-2ddd-4ed2-bb67-1d738578807b" />
 
 
-- RISC-V Logo Program Execution
+- RISC-V Logo Program Execution:
 
   The `riscv_logo.c` program was compiled and executed using the RISC-V GCC toolchain and Spike simulator.
 
@@ -86,7 +86,7 @@ The VSDFPGA repository was cloned inside the same GitHub Codespace environment.
 
   spike pk riscv_logo.elf
   ```
-  Output
+  Expected Output:
 
   ```text
   ************************************************************
