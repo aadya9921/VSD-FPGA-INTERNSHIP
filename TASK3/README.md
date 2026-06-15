@@ -120,6 +120,21 @@ git clone https://github.com/vsdip/vsdfpga_labs.git
 <br><br>
 <img width="800" height="126" alt="Screenshot 2026-06-15 124554" src="https://github.com/user-attachments/assets/61cb9f1e-c780-4df2-8212-599c44a01009" />
 
+### Dockerfile Analysis
+
+The Dockerfile was reviewed to identify the tools required for the development environment.
+
+#### Important Tools Identified:
+
+* **Git** – Version control
+* **GCC / G++** – C/C++ compilation
+* **Make** – Build automation
+* **RISC-V GCC Toolchain** (`riscv64-unknown-elf-gcc`)
+* **Spike Simulator**
+* **Proxy Kernel (riscv-pk)**
+* **Icarus Verilog (iverilog)**
+* **GTKWave**
+
 **Note**:
 This step was performed to understand the local development environment required for future FPGA-related tasks. The repositories were cloned successfully in an Ubuntu virtual machine, and the Dockerfile was reviewed to identify the required tools, packages, and setup dependencies. As specified in the task instructions, a complete FPGA tool installation was not required at this stage.
 
