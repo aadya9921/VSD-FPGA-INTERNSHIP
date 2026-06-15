@@ -113,6 +113,9 @@ Both repositories were cloned locally:
 git clone https://github.com/vsdip/vsd-riscv2.git
 git clone https://github.com/vsdip/vsdfpga_labs.git
 ```
-Note:
+<img width="700" height="550" alt="Screenshot 2026-06-14 160910" src="https://github.com/user-attachments/assets/2fa2e08f-1d40-4070-bf45-61648776bc77" />
+<br><br>
+<img width="700" height="126" alt="Screenshot 2026-06-15 124554" src="https://github.com/user-attachments/assets/61cb9f1e-c780-4df2-8212-599c44a01009" />
 
+**Note**:
 This step was performed to understand the local development environment required for future FPGA-related tasks. The repositories were cloned successfully in an Ubuntu virtual machine, and the Dockerfile was reviewed to identify the required tools, packages, and setup dependencies. As specified in the task instructions, a complete FPGA tool installation was not required at this stage.
