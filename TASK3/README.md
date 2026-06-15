@@ -46,7 +46,7 @@ Commands Used
 - spike pk sum1ton.o
 ```
 
-    Expected Output: Sum from 1 to 100 is 5050.
+    Expected Output: Sum from 1 to 100 is 5050
 
 <img width="800" height="550" alt="Screenshot 2026-06-13 120425" src="https://github.com/user-attachments/assets/45ff4ad3-201d-4585-8237-550f0ffc58d2" />
 <br><br>
