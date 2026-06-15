@@ -119,3 +119,21 @@ git clone https://github.com/vsdip/vsdfpga_labs.git
 
 **Note**:
 This step was performed to understand the local development environment required for future FPGA-related tasks. The repositories were cloned successfully in an Ubuntu virtual machine, and the Dockerfile was reviewed to identify the required tools, packages, and setup dependencies. As specified in the task instructions, a complete FPGA tool installation was not required at this stage.
+
+## Understanding Check Questions
+
+**Que1: Where is the RISC-V program located in the vsd-riscv2 repository?**
+
+Ans: The RISC-V reference program is located in the samples/ directory of the vsd-riscv2 repository.
+
+**Que2: How is the program compiled and loaded into memory?**
+
+Ans: The program is compiled using the RISC-V cross-compiler (riscv64-unknown-elf-gcc), which converts the C source code into a RISC-V executable(ELF Format). The executable is then loaded into simulated memory and executed by the Spike simulator using the Proxy Kernel (pk). The Proxy Kernel acts as a lightweight runtime environment that provides basic services such as program loading and system call handling during simulation.
+
+**Que3: How does the RISC-V core access memory and memory-mapped IO?**
+
+Ans: The RISC-V core accesses memory by reading and writing data through load and store instructions. For peripherals, specific memory addresses are assigned, allowing the processor to communicate with them by reading from and writing to those addresses just like regular memory.
+
+**Que4: Where would a new FPGA IP block logically integrate in this system?**
+
+Ans: A new FPGA IP block would be connected to the system as a peripheral. It would be assigned a memory address range, allowing the RISC-V processor to access and control it through memory-mapped I/O.
