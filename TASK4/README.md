@@ -249,8 +249,6 @@ iverilog -DBENCH -o sim.vvp riscv.v gpio_ip.v ice40_stubs.v
 vvp -n sim.vvp
 ```
 
-UART output confirmed successful execution of the firmware and GPIO accesses.
-
 Expected output:
 ```
 GPIO test 1: 66398812
@@ -259,6 +257,8 @@ ALL TESTS COMPLETED
 ```
 
 <img width="600" height="62" alt="Screenshot 2026-06-20 141151" src="https://github.com/user-attachments/assets/cab2b348-dc04-487e-a4dd-93ce2595b423" />
+
+UART output confirmed successful execution of the firmware and GPIO accesses.
 
 ### Use of ice40_stubs.v
 
