@@ -15,3 +15,6 @@
 - [Task 2.2 : Car Parking Counter using C, RISC-V GCC and SPIKE Simulator](./TASK2.2)
 
 - [Task 3 : Environment Setup & RISC-V Reference Bring-Up](./TASK3)
+
+- [Task 4 : Design and Integrate your First Memory-Mapped IP](./TASK4)
+
