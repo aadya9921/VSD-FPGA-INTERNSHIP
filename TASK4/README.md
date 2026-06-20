@@ -92,6 +92,7 @@ The SoC uses memory-mapped I/O to communicate with peripherals.
 * `IO_UART_DAT_bit` is used to transmit UART data.
 * `IO_UART_CNTL_bit` provides UART status information.
 * UART communication is handled through dedicated memory-mapped registers.
+* The LED logic is directly implemented inside the SoC. A write to the LED memory-mapped address updates the LED register and changes the LED outputs.
 * `IO_rdata` returns peripheral data to the processor during read operations.
 
 ## Step 2: Writing the IP RTL
@@ -117,7 +118,45 @@ The GPIO module was implemented in a new RTL file (gpio_ip.v).
 - `gpio_rdata` : Data returned during read operations
 - `gpio_out` : Stored GPIO register value
 
-<img width="600" height="462" alt="Screenshot 2026-06-18 220310" src="https://github.com/user-attachments/assets/d1b937cf-5122-48e3-8fe4-c32224fb8705" />
+
+```verilog
+module gpio_output(
+    input clk,
+    input resetn,
+
+    // Interface signals
+    input gpio_sel,
+    input gpio_we,
+    input [31:0] gpio_wdata,
+
+    output reg [31:0] gpio_rdata,
+    output [31:0] gpio_out
+);
+
+    // Internal 32-bit register
+    reg [31:0] gpio_reg;
+
+    // Write Logic
+    always @(posedge clk) begin
+        if (!resetn)
+            gpio_reg <= 32'd0;
+        else if (gpio_sel && gpio_we)
+            gpio_reg <= gpio_wdata;
+    end
+
+    // Readback Logic
+    always @(*) begin
+        if (gpio_sel)
+            gpio_rdata = gpio_reg;
+        else
+            gpio_rdata = 32'd0;
+    end
+
+    // Output Logic
+    assign gpio_out = gpio_reg;
+
+endmodule
+```
 
 ## Step 3: Integrating the IP into the SoC 
 
