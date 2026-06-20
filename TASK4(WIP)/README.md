@@ -24,20 +24,20 @@ The provided basicRISCV design is a simple RISC-V System-on-Chip (SoC). It consi
 
 ### a) Accessing the RTL Directory
 
-<img width="550" height="186" alt="Screenshot 2026-06-18 161047" src="https://github.com/user-attachments/assets/8a166ccf-f1ec-494b-b12b-1ba2281c299c" />
+<img width="600" height="186" alt="Screenshot 2026-06-18 161047" src="https://github.com/user-attachments/assets/8a166ccf-f1ec-494b-b12b-1ba2281c299c" />
 
 
 ### b) Identifying the Main RTL Modules
 
-<img width="550" height="70" alt="Screenshot 2026-06-18 161219" src="https://github.com/user-attachments/assets/3cd59553-e5e5-4d98-83c2-b184f29aedf2" />
+<img width="600" height="70" alt="Screenshot 2026-06-18 161219" src="https://github.com/user-attachments/assets/3cd59553-e5e5-4d98-83c2-b184f29aedf2" />
 
 ### c) Understanding the CPU Interface
 
 Studied the connection between the Processor and the SoC through the memory interface.
 
-<img width="550" height="52" alt="Screenshot 2026-06-18 200215" src="https://github.com/user-attachments/assets/cf297516-cad5-4c89-b829-0f2685625262" />
+<img width="600" height="52" alt="Screenshot 2026-06-18 200215" src="https://github.com/user-attachments/assets/cf297516-cad5-4c89-b829-0f2685625262" />
 
-<img width="550" height="83" alt="Screenshot 2026-06-18 200239" src="https://github.com/user-attachments/assets/1473c925-72e4-4eae-80f2-08c9672d1c6c" />
+<img width="600" height="83" alt="Screenshot 2026-06-18 200239" src="https://github.com/user-attachments/assets/1473c925-72e4-4eae-80f2-08c9672d1c6c" />
 
 These signals are used for communication between the CPU and memory/peripherals.
 
@@ -46,7 +46,7 @@ These signals are used for communication between the CPU and memory/peripherals.
 Studied the address decoding logic used by the SoC.
 
 
-<img width="550" height="56" alt="Screenshot 2026-06-18 200457" src="https://github.com/user-attachments/assets/99400e1f-7b6a-4b22-a013-c619ae9b89fc" />
+<img width="600" height="56" alt="Screenshot 2026-06-18 200457" src="https://github.com/user-attachments/assets/99400e1f-7b6a-4b22-a013-c619ae9b89fc" />
 
 The design separates RAM accesses from I/O accesses using the address bus.
 
@@ -60,7 +60,7 @@ The design separates RAM accesses from I/O accesses using the address bus.
 
 The RAM module is connected to the processor through the memory bus.
 
-<img width="550" height="77" alt="Screenshot 2026-06-18 200600" src="https://github.com/user-attachments/assets/dae6ec7a-8441-45c9-b420-567e9817e9d1" />
+<img width="600" height="77" alt="Screenshot 2026-06-18 200600" src="https://github.com/user-attachments/assets/dae6ec7a-8441-45c9-b420-567e9817e9d1" />
 
 
 * `clk` provides the system clock.
@@ -74,7 +74,7 @@ The RAM module is connected to the processor through the memory bus.
 
 The SoC uses memory-mapped I/O to communicate with peripherals.
 
-<img width="550" height="302" alt="Screenshot 2026-06-18 201118" src="https://github.com/user-attachments/assets/be982f1b-6b5c-43d4-9d50-926346f52cb7" />
+<img width="600" height="302" alt="Screenshot 2026-06-18 201118" src="https://github.com/user-attachments/assets/be982f1b-6b5c-43d4-9d50-926346f52cb7" />
 
 
 * `IO_LEDS_bit` controls the onboard LEDs.
@@ -83,7 +83,7 @@ The SoC uses memory-mapped I/O to communicate with peripherals.
 * UART communication is handled through dedicated memory-mapped registers.
 * `IO_rdata` returns peripheral data to the processor during read operations.
 
-## Step2: Writing the IP RTL
+## Step 2: Writing the IP RTL
 
 ### GPIO IP Features:
 - 32-bit register storage
@@ -106,6 +106,171 @@ The GPIO module was implemented in a new RTL file (gpio_ip.v).
 - `gpio_rdata` : Data returned during read operations
 - `gpio_out` : Stored GPIO register value
 
-<img width="550" height="462" alt="Screenshot 2026-06-18 220310" src="https://github.com/user-attachments/assets/d1b937cf-5122-48e3-8fe4-c32224fb8705" />
+<img width="600" height="462" alt="Screenshot 2026-06-18 220310" src="https://github.com/user-attachments/assets/d1b937cf-5122-48e3-8fe4-c32224fb8705" />
+
+## Step 3: Integrating the IP into the SoC 
+
+The GPIO IP was integrated into the existing RISC-V SoC by instantiating the module, connecting it to the system bus, implementing address decoding, and integrating the read/write data paths.
+
+### a) GPIO Signal Declaration
+
+New signals were added inside the SoC to connect the GPIO IP with the processor bus.
+
+Added signals:
+
+```verilog
+wire gpio_sel;
+wire gpio_we;
+wire [31:0] gpio_rdata;
+wire [31:0] gpio_out;
+```
+
+These signals are used for GPIO selection, write control, readback, and register output.
+
+### b) Address Decoding
+
+A dedicated GPIO address decode bit was added to the memory-mapped I/O section.
+
+```verilog
+localparam IO_GPIO_bit = 3;
+```
+
+GPIO selection logic:
+
+```verilog
+assign gpio_sel = isIO & mem_wordaddr[IO_GPIO_bit];
+assign gpio_we  = mem_wstrb;
+```
+
+This enables GPIO access whenever the processor accesses the assigned GPIO address.
 
 
+### c) GPIO Module Instantiation
+
+The GPIO IP was instantiated inside the SoC and connected to the existing bus signals.
+
+```verilog
+gpio_output GPIO(
+    .clk(clk),
+    .resetn(resetn),
+    .gpio_sel(gpio_sel),
+    .gpio_we(gpio_we),
+    .gpio_wdata(mem_wdata),
+    .gpio_rdata(gpio_rdata),
+    .gpio_out(gpio_out)
+);
+```
+
+This makes the GPIO peripheral a part of the SoC.
+
+
+### d) Read Data Integration
+
+The GPIO readback path was added to the I/O read-data multiplexer.
+
+```verilog
+wire [31:0] IO_rdata =
+               mem_wordaddr[IO_UART_CNTL_bit] ? { 22'b0, !uart_ready, 9'b0} :
+               mem_wordaddr[IO_GPIO_bit]      ? gpio_rdata : 32'd0;
+
+assign mem_rdata = isRAM ? RAM_rdata : IO_rdata ;
+```
+
+This allows the processor to read back the previously written GPIO value.
+
+### Note: 
+After integration, the GPIO peripheral became a fully functional memory-mapped device within the RISC-V SoC. The processor can write data to the GPIO register and read back the stored value through the system bus.
+
+## Step 4: Validating using Simulation
+
+The integrated GPIO IP was validated through RTL simulation. A firmware test program was developed to write values to the GPIO register, read them back, and print the results through UART.
+
+### a) GPIO Test Program
+
+A C program (gpio_test.c) was created to verify GPIO functionality.
+
+The program performs the following operations:
+
+- Writes test values to the GPIO register.
+- Reads back the stored values.
+- Prints the results through UART.
+- Confirms successful completion of all tests.
+```
+#include <stdio.h>
+#include <stdint.h>
+
+#define GPIO_ADDR 0x00400020
+
+volatile uint32_t *gpio = (volatile uint32_t *)GPIO_ADDR;
+
+void main() {
+    *gpio = 0x66398812;
+    printf("GPIO test 1: %x\n", (unsigned int)*gpio);
+
+    *gpio = 0xA0A0A0A0;
+    printf("GPIO test 2: %x\n", (unsigned int)*gpio);
+
+    printf("ALL TESTS COMPLETED\n");
+}
+```
+
+### b) Firmware Compilation
+
+The test program was compiled using the RISC-V toolchain to generate the firmware image.
+
+Command used: ```make gpio_test.bram.hex```
+
+Build flow:
+```
+C Program → ELF File → BRAM HEX File → firmware.hex
+```
+
+The generated firmware.hex was loaded into the SoC memory for simulation.
+
+<img width="600" height="205" alt="Screenshot 2026-06-20 141138" src="https://github.com/user-attachments/assets/fd5eea79-d710-4a42-a673-3716b089eaea" />
+
+### c) RTL Simulation
+
+The SoC was simulated using Icarus Verilog.
+
+Simulation commands:
+```
+iverilog -DBENCH -o sim.vvp riscv.v gpio_ip.v ice40_stubs.v
+vvp -n sim.vvp
+```
+
+UART output confirmed successful execution of the firmware and GPIO accesses.
+
+Expected output:
+```
+GPIO test 1: 66398812
+GPIO test 2: a0a0a0a0
+ALL TESTS COMPLETED
+```
+
+<img width="600" height="62" alt="Screenshot 2026-06-20 141151" src="https://github.com/user-attachments/assets/cab2b348-dc04-487e-a4dd-93ce2595b423" />
+
+### d) Waveform Verification
+
+The generated VCD waveform was analyzed using GTKWave.
+
+Signals monitored:
+```
+mem_addr
+mem_wdata
+gpio_sel
+gpio_we
+gpio_out
+gpio_rdata
+```
+
+<img width="800" height="466" alt="Screenshot 2026-06-20 141117" src="https://github.com/user-attachments/assets/194ea0f4-6c38-4dd0-b73d-1ed9657f99b4" />
+
+### Observations:
+
+- The processor accessed GPIO address 0x00400020.
+- ```gpio_sel``` asserted during GPIO transactions.
+- Written data appeared on mem_wdata.
+- gpio_out updated correctly after write operations.
+- Readback path returned the stored GPIO value.
+- ```isIO``` signal goes high whenever GPIO has been accessed.
