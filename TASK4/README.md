@@ -29,7 +29,7 @@ The provided basicRISCV design is a simple RISC-V System-on-Chip (SoC). It consi
 
 ### b) Identifying the Main RTL Modules
 
-<img width="600" height="70" alt="Screenshot 2026-06-18 161219" src="https://github.com/user-attachments/assets/3cd59553-e5e5-4d98-83c2-b184f29aedf2" />
+<img width="600" height="100" alt="Screenshot 2026-06-18 161219" src="https://github.com/user-attachments/assets/3cd59553-e5e5-4d98-83c2-b184f29aedf2" />
 
 ### c) Understanding the CPU Interface
 
@@ -57,7 +57,7 @@ These signals are used for communication between the CPU and memory/peripherals.
 Studied the address decoding logic used by the SoC.
 
 
-<img width="600" height="56" alt="Screenshot 2026-06-18 200457" src="https://github.com/user-attachments/assets/99400e1f-7b6a-4b22-a013-c619ae9b89fc" />
+<img width="600" height="90" alt="Screenshot 2026-06-18 200457" src="https://github.com/user-attachments/assets/99400e1f-7b6a-4b22-a013-c619ae9b89fc" />
 
 The address decoding logic determines whether a memory access is directed to RAM or to a memory-mapped peripheral.
 
