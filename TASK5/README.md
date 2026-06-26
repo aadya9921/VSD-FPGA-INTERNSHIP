@@ -434,6 +434,6 @@ The RTL simulation waveform was analyzed using **GTKWave** to verify the functio
   - `gpio_addr` correctly selects the target register using address-offset decoding.
   - `mem_addr`, `mem_wdata`, and `mem_rdata` confirm successful memory-mapped communication between the RISC-V processor and the GPIO peripheral.
 
-### Conclusion
+## Conclusion
 
 The GTKWave results verify the correct operation of the multi-register GPIO Control IP. The waveform demonstrates successful register updates, proper address decoding, accurate GPIO direction control, and correct readback functionality. These observations confirm that the GPIO Control IP has been successfully integrated and validated within the RISC-V SoC.
