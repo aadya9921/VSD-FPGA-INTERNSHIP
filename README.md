@@ -18,3 +18,4 @@
 
 - [Task 4 : Design and Integrate your First Memory-Mapped IP](./TASK4)
 
+- [Task 5 : Design a Multi-Register GPIO IP with Software Control](./TASK5)
