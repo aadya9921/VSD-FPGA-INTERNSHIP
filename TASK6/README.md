@@ -334,17 +334,20 @@ The design was synthesized and flashed to a VSDSquadron FPGA Mini board (iCE40UP
 
 ## Directory Structure
 
-```
-/timer_ip/
-  rtl/
-    timer_ip.v          -- Timer IP RTL
-  test/
-    timer.c              -- C validation program
-    simulation_log.txt   -- terminal simulation output
-    waveform_*.png        -- GTKWave screenshots (register write, one-shot,
-                             W1C, periodic reload, LED toggle)
-    hardware_demo.mp4     -- board validation video
-  README.md               -- this file
+```text
+timer_ip/
+├── rtl/
+│   └── timer_ip.v
+├── test/
+│   ├── timer.c
+│   ├── firmware_build.png
+│   ├── simulation_output.png
+│   ├── waveform_register_write.png
+│   ├── waveform_one_shot.png
+│   ├── waveform_w1c.png
+│   ├── waveform_periodic.png
+│   └── waveform_led_toggle.png
+└── README.md
 ```
 
 ---
