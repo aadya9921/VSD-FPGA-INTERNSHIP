@@ -2,7 +2,7 @@
 
 ## Objective
 
-### Timer IP — Core Contributor Task (Task-4)
+### Timer IP — Core Contributor Task
 
 ## Overview
 
@@ -232,20 +232,50 @@ The included test program (`test/timer.c`) demonstrates:
 
 ## Validation
 
-### Simulation
+### I. Simulation
 
-Full functional simulation was performed with `iverilog`/`vvp`, producing:
-- A clean terminal log showing UART output for every phase (one-shot detect/clear, three periodic beats, completion) with a clean `$finish`.
-- GTKWave waveform captures confirming, at the signal level:
-  1. **Register writes** — CTRL and LOAD values correctly latched on `sel && wr_en`.
-  2. **One-shot mode** — `value_reg` counts down to 0, `timeout_flag` sets and stays sticky, `value_reg`/`en` hold state afterward (timer stopped).
-  3. **Write-1-to-clear** — `timeout_flag` clears exactly on the cycle `STATUS` is written with bit 0 set.
-  4. **Periodic auto-reload** — `value_reg` repeatedly counts down and reloads from `load_reg` with no further software writes.
-  5. **LED toggle** — `led_toggle`, `LEDS` (inverted), and `LED_EXT` all transition correctly on the rising edge of `timeout_o`.
+1. **Firmware Build**
 
-(See `/test` for simulation logs and waveform screenshots.)
+   The Timer IP firmware was successfully compiled using the RISC-V GNU toolchain. The `timer.c` application and supporting runtime files were compiled, assembled, linked, and converted into the memory initialization file (`firmware.hex`) used by the RISC-V processor.
 
-### Hardware (VSDSquadron FPGA)
+   <img width="560" height="251" alt="Screenshot 2026-07-02 153520" src="https://github.com/user-attachments/assets/29bbee07-e8ae-4153-9e37-b912e20481d5" />
+
+2. **RTL Compilation and Simulation**
+
+   The complete RISC-V SoC, including the integrated Timer IP, was compiled using **Icarus Verilog (iverilog)** and functionally simulated using **vvp**.
+
+   ```bash
+   iverilog -DBENCH -o sim2.vvp riscv_new.v ice40_stubs.v
+   vvp sim2.vvp
+    ```
+
+   <img width="560" height="113" alt="Screenshot 2026-07-02 153536" src="https://github.com/user-attachments/assets/cddff965-3acd-49f6-96d3-c983f1f7310b" />
+
+3. **Waveform Analysis (GTKWave)**
+
+   A VCD waveform file (`sim.vcd`) was generated during simulation and analyzed using **GTKWave** to verify the functionality of the Timer IP.
+
+- **Register Writes:** The `CTRL` and `LOAD` registers were successfully written when `sel && wr_en` were asserted.
+
+   <img width="950" height="448" alt="Screenshot 2026-07-02 155234" src="https://github.com/user-attachments/assets/f7b7fced-3c10-4b7e-b1de-5af94a368663" />
+
+- **One-Shot Mode:** The `value_reg` counted down to zero, `timeout_flag` was asserted and remained set, while `value_reg` and `EN` held their values after timeout.
+
+   <img width="950" height="448" alt="Screenshot 2026-07-02 155525" src="https://github.com/user-attachments/assets/77e5b140-77a6-4b9c-9368-c2009013523a" />
+
+- **Write-1-to-Clear:** Writing a logic '1' to the `STATUS` register successfully cleared the sticky `timeout_flag`.
+
+   <img width="950" height="448" alt="Screenshot 2026-07-02 160931" src="https://github.com/user-attachments/assets/56859bd5-2205-47ee-b8df-0b3ad6c1d278" />
+
+- **Periodic Auto-Reload:** In periodic mode, `value_reg` automatically reloaded from `load_reg` after each timeout and continued counting without additional software writes.
+
+   <img width="950" height="448" alt="Screenshot 2026-07-02 161708" src="https://github.com/user-attachments/assets/d0fe87c3-ad64-49c0-8cf3-946b023e3e7b" />
+
+- **LED Toggle:** The `led_toggle`, `LEDS` (active-low), and `LED_EXT` (active-high) signals toggled correctly on every rising edge of `timeout_o`, confirming proper hardware indication of timeout events.
+
+   <img width="950" height="447" alt="Screenshot 2026-07-02 162142" src="https://github.com/user-attachments/assets/0a897990-9ebf-4d4c-b703-e8c6eb5f7086" />
+
+### II. Hardware (VSDSquadron FPGA)
 
 The design was synthesized and flashed to a VSDSquadron FPGA Mini board (iCE40UP5K) using the open-source `yosys` / `nextpnr-ice40` / `icepack` / `iceprog` flow.
 
