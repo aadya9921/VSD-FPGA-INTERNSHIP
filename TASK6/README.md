@@ -8,7 +8,7 @@
 
 This is a minimal, memory-mapped **Timer peripheral IP** designed and integrated into an existing RISC-V SoC (based on the `femtorv32`-style single-cycle-bus processor). The Timer provides a programmable countdown that generates a `TIMEOUT` event and status flag, supporting both **one-shot** and **periodic (auto-reload)** modes, with an optional prescaler.
 
-- **Owner:** Timer IP (Option 1)
+- **Owner:** Timer IP 
 - **SoC integration base address:** `TIMER_BASE = 0x2000_1000`
 - **Bus interface:** memory-mapped, 32-bit registers, word-aligned accesses
 
