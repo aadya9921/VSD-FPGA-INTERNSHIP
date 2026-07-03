@@ -385,6 +385,11 @@ task6/
 ├── test/
 │   ├── hardware_demo.mp4
 │   ├── timer.c
+│   ├── waveform_led_toggle.png
+│   ├── waveform_one_shot.png
+│   ├── waveform_periodic.png
+│   ├── waveform_register_write.png
+│   └── waveform_w1c.png
 └── README.md
 ```
 
