@@ -43,7 +43,7 @@ SB_LFOSC lfosc (
 assign clk = clk_lf;
 ```
 
-All register-level Timer IP behavior (correctness, mode switching, sticky status, write-1-to-clear) is independent of clock source and was fully verified both in simulation (at the intended 12 MHz operating frequency, `TICK_COUNT = 6000000`) and on hardware (at the 10 kHz fallback frequency, `TICK_COUNT` rescaled to `3000`). If you integrate this IP into a design with a different clock, simply recalculate your `LOAD` value for your actual frequency — no RTL changes are needed.
+All register-level Timer IP behavior (correctness, mode switching, sticky status, write-1-to-clear) is independent of clock source and was fully verified both in simulation and on hardware using the 10 kHz `SB_LFOSC` fallback clock, with `TICK_COUNT = 15000` (~1.5 seconds per beat). If you integrate this IP into a design with a different clock, simply recalculate your `LOAD` value for your actual frequency — no RTL changes are needed.
 
 ### Limitations
 
