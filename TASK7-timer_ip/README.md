@@ -57,7 +57,7 @@ Full example, expected UART output, and expected LED behavior: **[`docs/Example_
 ## Validation Evidence
 
 - **Simulation waveforms** (GTKWave screenshots covering register writes, one-shot mode, write-1-to-clear, periodic auto-reload, and LED toggle): **[`docs/waveforms/`](docs/waveforms/)**
-- **Hardware demo video** (continuous LED blinking on real VSDSquadron FPGA): **[`software/hardware_demo/`](software/hardware_demo/)**
+- **Hardware demo video** (continuous LED blinking on real VSDSquadron FPGA): **[`software/hardware_demo (1)/`](software/hardware_demo (1)/)**
 
 ## Known Limitations
 
