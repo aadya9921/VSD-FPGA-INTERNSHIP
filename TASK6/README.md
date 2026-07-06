@@ -370,7 +370,10 @@ iceprog SOC.bin
 
 
 
-   https://github.com/user-attachments/assets/724d028d-09a1-4ef9-a7ca-b9e6de80adae
+   
+    https://github.com/user-attachments/assets/77466d54-9378-4aaa-8dea-82db7ee7275b
+
+
 
 
 ---
