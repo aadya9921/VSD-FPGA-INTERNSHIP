@@ -57,6 +57,54 @@ All register-level Timer IP behavior (correctness, mode switching, sticky status
 
 ## Block Diagram
 
-<!-- INSERT BLOCK DIAGRAM IMAGE HERE -->
+```
+                    ┌─────────────────────┐
+                    │      CPU Bus        │
+                    │  (sel, wr_en, addr, │
+                    │   wdata, rdata)     │
+                    └──────────┬──────────┘
+                               │
+                               v
+                    ┌─────────────────────┐
+                    │  Register Decode    │
+                    │  (addr → CTRL/LOAD/ │
+                    │   VALUE/STATUS)     │
+                    └──────────┬──────────┘
+                               │
+              ┌────────────────┼────────────────┐
+              │                │                │
+              v                v                v
+      ┌───────────────┐ ┌──────────────┐ ┌──────────────┐
+      │  CTRL / LOAD   │ │  Prescaler   │ │   STATUS     │
+      │  (en, mode,    │ │  (presc_cnt  │ │ (write-1-to- │
+      │  presc_en,     │ │   vs         │ │  clear logic)│
+      │  presc_div)    │ │  presc_div)  │ │              │
+      └───────┬────────┘ └──────┬───────┘ └──────┬───────┘
+              │                 │                │
+              └────────┬────────┘                │
+                       v                         │
+              ┌──────────────────────┐            │
+              │   Counter / FSM      │            │
+              │   (value_reg         │            │
+              │    countdown,        │            │
+              │    load-on-enable,   │            │
+              │    one-shot/periodic │            │
+              │    reload logic)     │            │
+              └──────────┬───────────┘            │
+                         │                         │
+                         v                         │
+              ┌──────────────────────┐             │
+              │  timeout_flag        │<────────────┘
+              │  (sticky, set on     │
+              │   VALUE == 0)        │
+              └──────────┬───────────┘
+                         │
+                         v
+              ┌──────────────────────┐
+              │   timeout_o          │
+              │   (output to top-    │
+              │    level SoC / LED)  │
+              └──────────────────────┘
+```
 
 See `docs/Register_Map.md` for full register definitions and `docs/Integration_Guide.md` for exact wiring into your SoC.
