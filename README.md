@@ -22,4 +22,4 @@
 
 - [Task 6 : Real Peripheral Timer IP Development (Core Contributor Task)](./TASK6)
 
-- [Task 7 : Commercial-Grade Timer IP Documentation & Release)](./TASK7-timer_ip)
+- [Task 7 : Commercial-Grade Timer IP (Documentation & Release)](./TASK7-timer_ip)
