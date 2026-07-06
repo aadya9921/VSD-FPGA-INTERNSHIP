@@ -1,6 +1,6 @@
 # VSDSQUADRON FPGA INTERNSHIP 2026
 
-## DETAILS:
+### DETAILS:
 #### Name: Aadya Rastogi
 #### College: LNM Institute of Informationn Technology
 #### Email ID: aadya9921@gmail.com
