@@ -58,8 +58,7 @@ Full example, expected UART output, and expected LED behavior: **[`docs/Example_
 
 - **Simulation waveforms** (GTKWave screenshots covering register writes, one-shot mode, write-1-to-clear, periodic auto-reload, and LED toggle): **[`software/waveforms/`](software/waveforms/)**
 - **UART simulation output**: **[`software/uart_output.md`](software/uart_output.md)**
-- **Hardware demo video** (continuous LED blinking on real VSDSquadron FPGA): **[`software/hardware_demo (1).mp4/`](software/hardware_demo(1).mp4/)**
-
+- **Hardware demo video** (continuous LED blinking on real VSDSquadron FPGA): **[`software/hardware_demo (1).mp4`](software/hardware_demo%20%281%29.mp4)**
 ## Known Limitations
 
 - No interrupt output — only a polled status flag (`STATUS.TIMEOUT` / `timeout_o`)
