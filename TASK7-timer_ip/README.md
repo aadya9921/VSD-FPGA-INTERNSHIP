@@ -79,9 +79,6 @@ Full example, expected UART output, and expected LED behavior: **[`docs/Example_
 ## Folder structure
 
 ```
-## Folder structure
-
-```
 TASK7-timer_ip/
 ├── docs/
 │   ├── Example_Usage.md
@@ -104,4 +101,4 @@ TASK7-timer_ip/
 │   └── uart_output.md
 └── README.md
 ```
-```
+
