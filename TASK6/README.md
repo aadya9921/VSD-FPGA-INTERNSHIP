@@ -216,7 +216,7 @@ Current countdown value. **Read-only.** Writes are ignored.
 #define CTRL_EN        (1 << 0)
 #define CTRL_MODE      (1 << 1)   // 0 = one-shot, 1 = periodic
 
-#define TICK_COUNT     15000         // small value for fast simulation
+#define TICK_COUNT     15000         // ~1.5s per beat @ 10kHz SB_LFOS
 
 static void uart_putc(char c)
 {
