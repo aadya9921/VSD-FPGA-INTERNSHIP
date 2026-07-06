@@ -108,7 +108,7 @@ UART simulation output: `software/uart_output.md`
 
 ## Expected Board Behavior
 
-*See `docs/hardware_demo/` for video evidence of this behavior on real hardware.*
+*See `../software/hardware_demo (1).mp4` for video evidence of this behavior on real hardware.*
 
 In the reference integration, `timeout_o` is wired to toggle an onboard LED on every timeout event. With the example program above, at the 10 kHz `SB_LFOSC` fallback clock:
 
@@ -122,7 +122,7 @@ This LED-toggle behavior is implemented in the reference SoC's top-level module,
 
 ## Simulation Evidence (Waveform)
 
-The behavior described above was verified at the signal level using GTKWave. Screenshots are available in `docs/waveforms/`:
+The behavior described above was verified at the signal level using GTKWave. Screenshots are available in `../software/waveforms/`:
 
 | File | Shows |
 |---|---|
