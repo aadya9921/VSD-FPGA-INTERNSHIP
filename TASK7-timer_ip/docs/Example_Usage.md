@@ -102,6 +102,8 @@ int main(void)
 
 The `[PERIODIC] TIMEOUT detected, STATUS cleared.` line repeats once per beat — 100 times total — before the final `"=== Validation Complete ==="` line and program exit.
 
+UART simulation output: `software/uart_output.md`
+
 ---
 
 ## Expected Board Behavior
