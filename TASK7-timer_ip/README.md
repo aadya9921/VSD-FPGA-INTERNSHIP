@@ -57,6 +57,7 @@ Full example, expected UART output, and expected LED behavior: **[`docs/Example_
 ## Validation Evidence
 
 - **Simulation waveforms** (GTKWave screenshots covering register writes, one-shot mode, write-1-to-clear, periodic auto-reload, and LED toggle): **[`software/waveforms/`](software/waveforms/)**
+- **UART simulation output**: **[`software/uart_output.md`](software/uart_output.md)**
 - **Hardware demo video** (continuous LED blinking on real VSDSquadron FPGA): **[`software/hardware_demo (1)/`](software/hardware_demo (1)/)**
 
 ## Known Limitations
@@ -78,23 +79,29 @@ Full example, expected UART output, and expected LED behavior: **[`docs/Example_
 ## Folder structure
 
 ```
-timer_ip/
+## Folder structure
+
+```
+TASK7-timer_ip/
+├── docs/
+│   ├── Example_Usage.md
+│   ├── IP_User_Guide.md
+│   ├── Integration_Guide.md
+│   └── Register_Map.md
 ├── rtl/
+│   ├── riscv.v
 │   └── timer_ip.v
 ├── software/
-│   └── timer.c
-├── docs/
-│   ├── IP_User_Guide.md
-│   ├── Register_Map.md
-│   ├── Integration_Guide.md
-│   ├── Example_Usage.md
 │   ├── waveforms/
+│   │   ├── README.md
 │   │   ├── waveform_register_write.png
 │   │   ├── waveform_one_shot.png
 │   │   ├── waveform_w1c.png
 │   │   ├── waveform_periodic.png
 │   │   └── waveform_led_toggle.png
-│   └── hardware_demo/
-│       └── hardware_demo.mp4
+│   ├── hardware_demo (1).mp4
+│   ├── timer.c
+│   └── uart_output.md
 └── README.md
+```
 ```
