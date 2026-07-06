@@ -26,12 +26,6 @@ assign clk = clk_lf;
 
 The Timer IP itself is clock-agnostic — this only affects the `LOAD` timing constant used in the example firmware (scaled for 10 kHz). If you integrate this into a design running from a different clock, just recalculate `LOAD` for your actual frequency. See `docs/IP_User_Guide.md` for full details.
 
-## Known Limitations
-
-- No interrupt output — only a polled status flag (`STATUS.TIMEOUT` / `timeout_o`)
-- Single countdown channel per instance — no multi-timer support built in
-- Prescaler counter itself is not readable — only the configured `PRESC_DIV` value is
-- Hardware validation was performed at a 10 kHz fallback clock (`SB_LFOSC`), not the board's intended 12 MHz — see "Clock Source Used" above
 
 ## Quick integration
 
@@ -65,6 +59,13 @@ Full example, expected UART output, and expected LED behavior: **[`docs/Example_
 - **Simulation waveforms** (GTKWave screenshots covering register writes, one-shot mode, write-1-to-clear, periodic auto-reload, and LED toggle): **[`docs/waveforms/`](docs/waveforms/)**
 - **Hardware demo video** (continuous LED blinking on real VSDSquadron FPGA): **[`docs/hardware_demo/`](docs/hardware_demo/)**
 
+## Known Limitations
+
+- No interrupt output — only a polled status flag (`STATUS.TIMEOUT` / `timeout_o`)
+- Single countdown channel per instance — no multi-timer support built in
+- Prescaler counter itself is not readable — only the configured `PRESC_DIV` value is
+- Hardware validation was performed at a 10 kHz fallback clock (`SB_LFOSC`), not the board's intended 12 MHz — see "Clock Source Used" above
+- 
 ## Docs index
 
 | Document | Contents |
