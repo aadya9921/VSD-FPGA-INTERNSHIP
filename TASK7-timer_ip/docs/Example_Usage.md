@@ -106,6 +106,8 @@ The `[PERIODIC] TIMEOUT detected, STATUS cleared.` line repeats once per beat â€
 
 ## Expected Board Behavior
 
+*See `docs/hardware_demo/` for video evidence of this behavior on real hardware.*
+
 In the reference integration, `timeout_o` is wired to toggle an onboard LED on every timeout event. With the example program above, at the 10 kHz `SB_LFOSC` fallback clock:
 
 - The LED toggles **once** for the one-shot phase.
