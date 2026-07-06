@@ -108,8 +108,6 @@ UART simulation output: `software/uart_output.md`
 
 ## Expected Board Behavior
 
-*See `../software/hardware_demo (1).mp4` for video evidence of this behavior on real hardware.*
-
 In the reference integration, `timeout_o` is wired to toggle an onboard LED on every timeout event. With the example program above, at the 10 kHz `SB_LFOSC` fallback clock:
 
 - The LED toggles **once** for the one-shot phase.
@@ -117,6 +115,10 @@ In the reference integration, `timeout_o` is wired to toggle an onboard LED on e
 - After the program completes, the LED holds its final state (101 total toggles — an odd number — so it ends in the opposite state from where it started).
 
 This LED-toggle behavior is implemented in the reference SoC's top-level module, reacting to `timeout_o`'s rising edge — it is not part of this IP itself, and is shown here only as a demonstration pattern for how a consumer might use `timeout_o`. If your integration uses a different clock frequency, recalculate the expected toggle interval as `TICK_COUNT ÷ clock_frequency_Hz`.
+
+
+ https://github.com/user-attachments/assets/77466d54-9378-4aaa-8dea-82db7ee7275b
+
 
 ---
 
