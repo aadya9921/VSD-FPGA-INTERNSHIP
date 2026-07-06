@@ -1,4 +1,4 @@
-# Timer IP — User Guide
+# Timer IP — IP User Guide
 
 ## What Is This IP?
 
