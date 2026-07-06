@@ -216,7 +216,7 @@ Current countdown value. **Read-only.** Writes are ignored.
 #define CTRL_EN        (1 << 0)
 #define CTRL_MODE      (1 << 1)   // 0 = one-shot, 1 = periodic
 
-#define TICK_COUNT     3000         // small value for fast simulation
+#define TICK_COUNT     15000         // small value for fast simulation
 
 static void uart_putc(char c)
 {
@@ -276,6 +276,9 @@ The included test program (`test/timer.c`) demonstrates:
 5. **Both** one-shot mode (single timeout, then stop) **and** periodic mode (multiple auto-reloading timeouts) in sequence
 6. UART logging of each phase for observability in simulation
 
+**Note on periodic loop count:** the periodic phase runs for **100 beats** (`for (int beat = 0; beat < 100; beat++)`), each beat taking ~1.5 seconds (`TICK_COUNT = 15000` at the 10 kHz `SB_LFOSC` clock used for hardware validation — see clock source note below). This gives ~2.5 minutes of visible, repeating LED toggling — clearly demonstrating continuous periodic operation — while still terminating and printing `"=== Validation Complete ==="` in simulation, unlike an unbounded `while(1)` loop which would never complete.
+
+
 ---
 
 ## Validation
@@ -286,7 +289,8 @@ The included test program (`test/timer.c`) demonstrates:
 
    The Timer IP firmware was successfully compiled using the RISC-V GNU toolchain. The `timer.c` application and supporting runtime files were compiled, assembled, linked, and converted into the memory initialization file (`firmware.hex`) used by the RISC-V processor.
 
-   <img width="560" height="251" alt="Screenshot 2026-07-02 153520" src="https://github.com/user-attachments/assets/29bbee07-e8ae-4153-9e37-b912e20481d5" />
+   <img width="950" height="206" alt="Screenshot 2026-07-06 150951" src="https://github.com/user-attachments/assets/970305b6-29da-4a81-ab97-f94f7e87ae80" />
+
 
 2. **RTL Compilation and Simulation**
 
@@ -297,7 +301,12 @@ The included test program (`test/timer.c`) demonstrates:
    vvp sim2.vvp
     ```
 
-   <img width="560" height="113" alt="Screenshot 2026-07-02 153536" src="https://github.com/user-attachments/assets/cddff965-3acd-49f6-96d3-c983f1f7310b" />
+   <img width="950" height="409" alt="Screenshot 2026-07-06 150509" src="https://github.com/user-attachments/assets/1f1ce557-7455-4dd0-808a-c2dd2aed1eea" />
+
+
+   <img width="950" height="350" alt="Screenshot 2026-07-06 150631" src="https://github.com/user-attachments/assets/2dbee655-6b7c-43ac-b607-8dd76b90eedb" />
+
+
 
 3. **Waveform Analysis (GTKWave)**
 
@@ -352,6 +361,7 @@ iceprog SOC.bin
 
 - **Note on clock source:** the board's external 12 MHz crystal input could not be reliably routed to the design in this environment; the internal iCE40 `SB_LFOSC` (10 kHz) oscillator was used instead as the system clock for hardware validation:
 
+
 ```verilog
   wire clk_lf;
   SB_LFOSC lfosc (
@@ -366,15 +376,17 @@ iceprog SOC.bin
 
 **Build & flash log:**
 
-<img width="950" height="211" alt="Screenshot 2026-07-03 202033" src="https://github.com/user-attachments/assets/933e0015-0eb1-4c1f-a0f5-a2d3c752a273" />
+<img width="950" height="209" alt="Screenshot 2026-07-06 150349" src="https://github.com/user-attachments/assets/6837a879-4c73-4932-9a85-622026d32077" />
 
 
+  
 
    
-    https://github.com/user-attachments/assets/77466d54-9378-4aaa-8dea-82db7ee7275b
+ https://github.com/user-attachments/assets/77466d54-9378-4aaa-8dea-82db7ee7275b
 
 
-
+- **LED toggles at a ~1.5 second interval**, repeating for 100 beats (~2.5 minutes total) before the program completes and the LED holds its final state.
+  
 
 ---
 
