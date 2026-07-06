@@ -118,6 +118,20 @@ This LED-toggle behavior is implemented in the reference SoC's top-level module,
 
 ---
 
+## Simulation Evidence (Waveform)
+
+The behavior described above was verified at the signal level using GTKWave. Screenshots are available in `docs/waveforms/`:
+
+| File | Shows |
+|---|---|
+| `waveform_register_write.png` | `CTRL` and `LOAD` correctly latched on `sel && wr_en` |
+| `waveform_one_shot.png` | `value_reg` counting down to 0, `timeout_flag` set and sticky, one-shot stop behavior |
+| `waveform_w1c.png` | `timeout_flag` clearing exactly on a `STATUS` write-1-to-clear |
+| `waveform_periodic.png` | `value_reg` auto-reloading from `load_reg` after each timeout, repeating without software intervention |
+| `waveform_led_toggle.png` | `led_toggle` / `LEDS` / `LED_EXT` toggling correctly on every rising edge of `timeout_o` |
+
+--- 
+
 ## Common Failure Symptoms
 
 | Symptom | Likely Cause |
