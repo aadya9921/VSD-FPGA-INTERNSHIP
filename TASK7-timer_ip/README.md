@@ -66,7 +66,7 @@ Full example, expected UART output, and expected LED behavior: **[`docs/Example_
 - Single countdown channel per instance — no multi-timer support built in
 - Prescaler counter itself is not readable — only the configured `PRESC_DIV` value is
 - Hardware validation was performed at a 10 kHz fallback clock (`SB_LFOSC`), not the board's intended 12 MHz — see "Clock Source Used" above
-- 
+
 ## Docs index
 
 | Document | Contents |
