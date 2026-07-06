@@ -216,7 +216,7 @@ Current countdown value. **Read-only.** Writes are ignored.
 #define CTRL_EN        (1 << 0)
 #define CTRL_MODE      (1 << 1)   // 0 = one-shot, 1 = periodic
 
-#define TICK_COUNT     6000000         // small value for fast simulation
+#define TICK_COUNT     3000         // small value for fast simulation
 
 static void uart_putc(char c)
 {
@@ -251,14 +251,14 @@ int main(void)
     uart_puts("[ONE-SHOT] TIMEOUT detected and cleared. Timer stopped.\n");
     TIMER_CTRL = 0;
 
-    // ---- PERIODIC MODE (3 beats) ----
+// ---- PERIODIC MODE (continuous) ----
     uart_puts("[PERIODIC] Loading TIMER_LOAD, enabling EN=1 MODE=1\n");
     TIMER_LOAD = TICK_COUNT;
     TIMER_CTRL = CTRL_EN | CTRL_MODE; // EN=1, MODE=1 (periodic)
 
-    for (int beat = 0; beat < 3; beat++) {
+    for (int beat = 0; beat < 100; beat++) {
         wait_and_clear();
-        uart_puts("[PERIODIC] Beat timeout cleared.\n");
+        uart_puts("[PERIODIC] TIMEOUT detected, STATUS cleared.\n");
     }
 
     TIMER_CTRL = 0;
