@@ -52,13 +52,18 @@ Full bit-level definitions: **[`docs/Register_Map.md`](docs/Register_Map.md)**
 Ready-to-run example firmware is in `software/timer.c` — programs the timer, polls for timeout, clears it, and demonstrates both modes.
 
 ```c
-TIMER_LOAD = 3000;                 // scaled for 10kHz SB_LFOSC (~0.3s)
+TIMER_LOAD = 15000;                // scaled for 10kHz SB_LFOSC (~1.5s per beat)
 TIMER_CTRL = CTRL_EN | CTRL_MODE;  // enable, periodic mode
 while ((TIMER_STAT & 1) == 0) ;    // wait for timeout
 TIMER_STAT = 1;                    // clear (write-1-to-clear)
 ```
 
 Full example, expected UART output, and expected LED behavior: **[`docs/Example_Usage.md`](docs/Example_Usage.md)**
+
+## Validation Evidence
+
+- **Simulation waveforms** (GTKWave screenshots covering register writes, one-shot mode, write-1-to-clear, periodic auto-reload, and LED toggle): **[`docs/waveforms/`](docs/waveforms/)**
+- **Hardware demo video** (continuous LED blinking on real VSDSquadron FPGA): **[`docs/hardware_demo/`](docs/hardware_demo/)**
 
 ## Docs index
 
@@ -81,6 +86,14 @@ timer_ip/
 │   ├── IP_User_Guide.md
 │   ├── Register_Map.md
 │   ├── Integration_Guide.md
-│   └── Example_Usage.md
+│   ├── Example_Usage.md
+│   ├── waveforms/
+│   │   ├── waveform_register_write.png
+│   │   ├── waveform_one_shot.png
+│   │   ├── waveform_w1c.png
+│   │   ├── waveform_periodic.png
+│   │   └── waveform_led_toggle.png
+│   └── hardware_demo/
+│       └── hardware_demo.mp4
 └── README.md
 ```
