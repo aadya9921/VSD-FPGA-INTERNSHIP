@@ -83,18 +83,18 @@ TASK7-timer_ip/
 │   ├── Example_Usage.md
 │   ├── IP_User_Guide.md
 │   ├── Integration_Guide.md
-│   └── Register_Map.md
+│   ├── Register_Map.md
+│   └── VSDSquadronFM.pcf
 ├── rtl/
 │   ├── riscv.v
 │   └── timer_ip.v
 ├── software/
 │   ├── waveforms/
-│   │   ├── README.md
-│   │   ├── waveform_register_write.png
+│   │   ├── waveform_led_toggle.png
 │   │   ├── waveform_one_shot.png
-│   │   ├── waveform_w1c.png
 │   │   ├── waveform_periodic.png
-│   │   └── waveform_led_toggle.png
+│   │   ├── waveform_register_write.png
+│   │   └── waveform_w1c.png
 │   ├── hardware_demo (1).mp4
 │   ├── timer.c
 │   └── uart_output.md
