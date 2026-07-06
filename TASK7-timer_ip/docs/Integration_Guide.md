@@ -88,9 +88,9 @@ Only one signal needs to be routed beyond the immediate bus connection: `timeout
 
 ## Pin Connections (If Applicable)
 
-This IP has no direct physical pin connections of its own — it is a purely bus-side peripheral. If you connect `timeout_o` to an LED (as in the reference board demo), that LED's physical pin assignment is entirely up to your own board's PCF/constraint file; see `docs/Example_Usage.md` for the reference board demo's specific wiring and clock source used.
+This IP has no direct physical pin connections of its own — it is a purely bus-side peripheral. If you connect `timeout_o` to an LED (as in the reference board demo), that LED's physical pin assignment is entirely up to your own board's PCF/constraint file; see `Example_Usage.md` for the reference board demo's specific wiring and clock source used.
 
-For your own board bring-up, a reference `.pcf` constraint file (mapping `LEDS`, `RESET`, `CLK`, `TXD`, `RXD` to the VSDSquadron FPGA Mini's physical pins) is provided at `docs/VSDSquadronFM.pcf`.
+For your own board bring-up, a reference `.pcf` constraint file (mapping `LEDS`, `RESET`, `CLK`, `TXD`, `RXD` to the VSDSquadron FPGA Mini's physical pins) is provided at `VSDSquadronFM.pcf`.
 
 ## Integration Checklist
 
