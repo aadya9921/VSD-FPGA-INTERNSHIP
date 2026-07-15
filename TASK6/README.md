@@ -382,7 +382,14 @@ iceprog SOC.bin
   
 
    
- https://github.com/user-attachments/assets/77466d54-9378-4aaa-8dea-82db7ee7275b
+ 
+ https://github.com/user-attachments/assets/13ec0069-8121-49fd-8fce-eb88de923e20
+
+
+
+
+
+
 
 
 - **LED toggles at a ~1.5 second interval**, repeating for 100 beats (~2.5 minutes total) before the program completes and the LED holds its final state.
