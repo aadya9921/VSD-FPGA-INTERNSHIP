@@ -117,7 +117,13 @@ In the reference integration, `timeout_o` is wired to toggle an onboard LED on e
 This LED-toggle behavior is implemented in the reference SoC's top-level module, reacting to `timeout_o`'s rising edge — it is not part of this IP itself, and is shown here only as a demonstration pattern for how a consumer might use `timeout_o`. If your integration uses a different clock frequency, recalculate the expected toggle interval as `TICK_COUNT ÷ clock_frequency_Hz`.
 
 
- https://github.com/user-attachments/assets/77466d54-9378-4aaa-8dea-82db7ee7275b
+ 
+
+https://github.com/user-attachments/assets/97b8794b-9995-4948-8a5a-0f241fe68e4f
+
+
+
+
 
 
 ---
