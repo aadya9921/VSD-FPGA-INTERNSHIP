@@ -1,6 +1,10 @@
 # VSDSQUADRON FPGA INTERNSHIP 2026
 
+The VSDSquadron FPGA Internship 2026 is a hands-on internship focused on RISC-V processor architecture, Verilog HDL, FPGA design, and custom IP development. It provides practical experience in designing, simulating, synthesizing, and validating digital hardware on FPGA platforms.
+
+
 ### DETAILS:
+
 #### Name: Aadya Rastogi
 #### College: LNM Institute of Informationn Technology
 #### Email ID: aadya9921@gmail.com
